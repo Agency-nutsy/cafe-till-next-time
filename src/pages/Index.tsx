@@ -3,7 +3,21 @@ import { Link } from "react-router-dom";
 import { UtensilsCrossed, Leaf, Truck, Star, ArrowRight, Clock, MapPin, Phone, ChefHat } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
-import momosImg from "@/assets/momos.jpg";
+
+// --- UPDATE THESE IMPORTS WITH YOUR ACTUAL 10 IMAGE FILES ---
+import heroSlide1 from "@/assets/hero 1.webp";
+import heroSlide2 from "@/assets/hero 2.webp";
+import heroSlide3 from "@/assets/hero 3.webp";
+import heroSlide4 from "@/assets/hero 4.webp";
+
+import dish1 from "@/assets/momos.jpg"; // For TNT Special Momos
+import dish2 from "@/assets/pizza.jpg"; // For Crispy Veg Pizza
+import dish3 from "@/assets/pasta.webp"; // For White Sauce Pasta
+import dish4 from "@/assets/oreo.jpg"; // For Oreo Mudshake
+
+import ambiance1 from "@/assets/hero 2.webp"; // Main story image
+import ambiance2 from "@/assets/home 2.jpg"; // Overlapping story image
+// -----------------------------------------------------------
 
 const PHONE = "+918851563541";
 const PHONE_DISPLAY = "+91 88515 63541";
@@ -11,13 +25,15 @@ const ADDRESS = "295, 2nd Floor, Satya Niketan, South Moti Bagh, New Delhi, Delh
 const MAPS_LINK = "https://maps.app.goo.gl/v1pP8E3j2m7wZ7a98";
 const MAPS_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.736040188206!2d77.1643443!3d28.5776856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02dc74a9c443%3A0xeb7b833b34dc3f3e!2sCAFE%20TIL%20NEXT%20TIME%20(TNT)!5e0!3m2!1sen!2sin!4v1712123456789!5m2!1sen!2sin";
 
-const heroSlides = [momosImg, momosImg, momosImg, momosImg];
+// Using the 4 distinct hero slide variables
+const heroSlides = [heroSlide1, heroSlide2, heroSlide3, heroSlide4];
 
+// Using the 4 distinct dish image variables
 const specialties = [
-  { name: "TNT Special Momos", desc: "The best hand-folded dumplings in Satya Niketan", img: momosImg, price: "₹149", tag: "Bestseller" },
-  { name: "Crispy Veg Pizza", desc: "Loaded with cheese and a signature spice blend", img: momosImg, price: "₹249", tag: "Must Try" },
-  { name: "White Sauce Pasta", desc: "Rich, creamy, and a favorite among college students", img: momosImg, price: "₹199", tag: "Popular" },
-  { name: "Oreo Mudshake", desc: "The ultimate thick shake to beat the Delhi heat", img: momosImg, price: "₹150", tag: "Classic" },
+  { name: "TNT Special Momos", desc: "The best hand-folded dumplings in Satya Niketan", img: dish1, price: "₹149", tag: "Bestseller" },
+  { name: "Crispy Veg Pizza", desc: "Loaded with cheese and a signature spice blend", img: dish2, price: "₹249", tag: "Must Try" },
+  { name: "White Sauce Pasta", desc: "Rich, creamy, and a favorite among college students", img: dish3, price: "₹199", tag: "Popular" },
+  { name: "Oreo Mudshake", desc: "The ultimate thick shake to beat the Delhi heat", img: dish4, price: "₹150", tag: "Classic" },
 ];
 
 const reviews = [
@@ -71,7 +87,7 @@ const Index = () => {
           <motion.img
             key={i}
             src={slide}
-            alt="Cafe Till Next Time Food"
+            alt={`Cafe Till Next Time Atmosphere ${i + 1}`}
             className="absolute inset-0 w-full h-full object-cover"
             initial={false}
             animate={{ opacity: i === currentSlide ? 1 : 0, scale: i === currentSlide ? 1 : 1.05 }}
@@ -260,8 +276,9 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <ScrollReveal direction="left">
               <div className="relative">
-                <img src={momosImg} alt="Cafe TNT Atmosphere" className="rounded-2xl w-full h-80 object-cover shadow-xl" loading="lazy" />
-                <img src={momosImg} alt="TNT Signature Dish" className="absolute -bottom-8 -right-4 md:-right-8 w-48 h-48 object-cover rounded-2xl border-4 border-background shadow-lg" loading="lazy" />
+                {/* Changed to use ambiance1 and ambiance2 variables */}
+                <img src={ambiance1} alt="Cafe TNT Atmosphere" className="rounded-2xl w-full h-80 object-cover shadow-xl" loading="lazy" />
+                <img src={ambiance2} alt="TNT Signature Dish" className="absolute -bottom-8 -right-4 md:-right-8 w-48 h-48 object-cover rounded-2xl border-4 border-background shadow-lg" loading="lazy" />
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right">
